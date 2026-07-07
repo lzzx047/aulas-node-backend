@@ -1,18 +1,43 @@
-// Configura uma rota para o metodo HTTP GET na raiz ("/") do aplicativo.
-import express from 'express'
-
-//server ou app
+import express from "express"
+ import bancoDeDados from "./repository/index.js"
 const app = express()
-
-app.get("/api/v1/somar", (req, res) => {
-    // Retorna uma resposta JSON contendo uma mensagem "Hello World"
-    const num1 = Number(req.query.batata)
-    const num2 = Number(req.query.num2)
-    const resultado = num1 + num2
-    res.send({ resultado })
+// server ou app
+//Configura uma rota para o metodo HTTP GET na raiz ("/") do aplicativo
+// app.get("/api/v1/somar", (req, res) => {
+ 
+// console.log(req.query)
+ 
+//     const num1 = Number(req.query.num1)
+//     const num2 =  Number(req.query.num2)
+//     const resultado = num1 + num2
+//     //Retorna uma resposta JSON contendo uma mensagem "Hello Word"
+//     res.send({ resultado })
+// })
+ 
+app.get("/api/pessoa/:id", (req, res) => {
+    const id = req.params.id
+    const pessoa = bancoDeDados.find(it => it.id == id)
+    if (!pessoa){
+        res.send({ message: "Pessoa não encontrada" })
+        return
+    }
+ 
+    res.send({pessoa})
 })
+app.get("/api/pessoa", (req, res) => {
+    const { id, name } = req.query
+    if(!id || !name) {
+        res.send({ message: "Favor informar id e name" })
+        return
+    }
+    bancoDeDados.push({id, name})
+    res.send({ message: "Pessoa criada com sucesso" })
+
+})
+ console.log(bancoDeDados)
+ 
 //Inicia o servidor Express na porta 3000 e define uma função de retorno de chamada
 app.listen(3000, () => {
-    //Exibe uma mensagem no console quando o servidor estiver ativo
-    console.log("Servidor ouvindo na porta 3000");
+    //Exbice uma mensagem no console quando o servidor estiver ativo.
+    console.log("servidor escutando na porta 3000")
 })
