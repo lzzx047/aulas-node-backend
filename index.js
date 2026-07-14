@@ -14,6 +14,19 @@ const app = express()
 //     res.send({ resultado })
 // })
  
+app.post("/api/v1/salario", (req, res) => {
+    const {Salarioh , horas } = req.body 
+    const resultado = Number(horas) * Number(Salarioh)
+    res.send({
+        message : " meu salario : ", resultado 
+    })
+})
+
+
+
+
+
+
 app.get("/api/pessoa/:id", (req, res) => {
     const id = req.params.id
     const pessoa = bancoDeDados.find(it => it.id == id)
