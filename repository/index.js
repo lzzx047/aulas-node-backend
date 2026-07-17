@@ -1,6 +1,6 @@
 // um espaço na memoria
 // um array são varios espaços na memoria
-const bancoDeDados = []
+//const bancoDeDados = []
 
 // bancoDeDados.push("joao")
 // bancoDeDados.push("pedro")
@@ -8,4 +8,4 @@ const bancoDeDados = []
 // bancoDeDados[0] = "batata"
 
 
-export default bancoDeDados
+//export default bancoDeDados
