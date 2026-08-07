@@ -1,7 +1,7 @@
 {
   "name": "aulas-node-backend",
-  "version": "0.0.1",
-  "description": "qualquer coisa",
+  "version": "1.0.0",
+  "description": "",
   "homepage": "https://github.com/lzzx047/aulas-node-backend#readme",
   "bugs": {
     "url": "https://github.com/lzzx047/aulas-node-backend/issues"
@@ -11,12 +11,12 @@
     "url": "git+https://github.com/lzzx047/aulas-node-backend.git"
   },
   "license": "ISC",
-  "author": "Luiz Fernando Marques",
+  "author": "Luiz",
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "dev": "node --watch index.js"
+    "dev": "node --watch index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "express": "^5.2.1"
